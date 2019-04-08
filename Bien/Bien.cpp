@@ -53,6 +53,14 @@ void Bien::setM_Vendeur(const ClientVendeur &m_Vendeur) {
     Bien::m_Vendeur = m_Vendeur;
 }
 
+const string &Bien::getMAdresse() const {
+    return m_Adresse;
+}
+
+void Bien::setMAdresse(const string &mAdresse) {
+    m_Adresse = mAdresse;
+}
+
 
 
 

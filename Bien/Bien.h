@@ -36,7 +36,15 @@ public:
 protected:
     double m_Prix;
     double m_Surface;
+    string m_Adresse;
+public:
+    void setMAdresse(const string &mAdresse);
+
+public:
+    const string &getMAdresse() const;
+
+protected:
     int m_ID;
-    ClientVendeur m_Vendeur;
+    ClientVendeur& m_Vendeur;
 };
 #endif //PROJECT_UNTOITPOURTOUS_BIEN_H

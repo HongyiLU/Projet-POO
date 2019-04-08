@@ -6,11 +6,14 @@
 #define PROJECT_UNTOITPOURTOUS_CLIENT_H
 
 #include <string>
+#include "Bien/Bien.h"
 
 using namespace std;
 
 class Client{
 public:
+    Client(const string &mNom, const string &mAdresse);
+
 protected:
     string m_Nom;
     string m_Adresse;
@@ -18,11 +21,15 @@ protected:
 
 class ClientVendeur:public Client{
 public:
+    ClientVendeur(const string &mNom, const string &mAdresse);
 private:
+    list<Bien> ListVente;
 };
 
 class ClientAcheteur:public Client{
 public:
+    ClientAcheteur(const string &mNom, const string &mAdresse);
 private:
+    list<Bien> ListVisit;
 };
 #endif //PROJECT_UNTOITPOURTOUS_CLIENT_H
