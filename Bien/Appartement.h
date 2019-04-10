@@ -14,6 +14,8 @@ public:
 
     Appartement(const Appartement &A);
 
+    Appartement();
+
     virtual ~Appartement();
 
     void setM_NumPiece(int m_NumPiece);

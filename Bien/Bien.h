@@ -33,18 +33,15 @@ public:
 
     const ClientVendeur &getM_Vendeur() const;
 
-protected:
-    double m_Prix;
-    double m_Surface;
-    string m_Adresse;
-public:
     void setMAdresse(const string &mAdresse);
 
-public:
     const string &getMAdresse() const;
 
 protected:
     int m_ID;
+    double m_Prix;
+    double m_Surface;
+    string m_Adresse;
     ClientVendeur& m_Vendeur;
 };
 #endif //PROJECT_UNTOITPOURTOUS_BIEN_H

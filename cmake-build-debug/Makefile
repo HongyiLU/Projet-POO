@@ -122,6 +122,33 @@ Projet-POO/fast:
 	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/build
 .PHONY : Projet-POO/fast
 
+Agence.obj: Agence.cpp.obj
+
+.PHONY : Agence.obj
+
+# target to build an object file
+Agence.cpp.obj:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Agence.cpp.obj
+.PHONY : Agence.cpp.obj
+
+Agence.i: Agence.cpp.i
+
+.PHONY : Agence.i
+
+# target to preprocess a source file
+Agence.cpp.i:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Agence.cpp.i
+.PHONY : Agence.cpp.i
+
+Agence.s: Agence.cpp.s
+
+.PHONY : Agence.s
+
+# target to generate assembly for a file
+Agence.cpp.s:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Agence.cpp.s
+.PHONY : Agence.cpp.s
+
 Bien/Appartement.obj: Bien/Appartement.cpp.obj
 
 .PHONY : Bien/Appartement.obj
@@ -239,6 +266,9 @@ help:
 	@echo ... edit_cache
 	@echo ... Projet-POO
 	@echo ... rebuild_cache
+	@echo ... Agence.obj
+	@echo ... Agence.i
+	@echo ... Agence.s
 	@echo ... Bien/Appartement.obj
 	@echo ... Bien/Appartement.i
 	@echo ... Bien/Appartement.s
