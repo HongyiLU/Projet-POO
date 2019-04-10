@@ -11,6 +11,7 @@
 #include "Bien/LocauxProfessionnels.h"
 #include "ClientVendeur.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 void Agence::AddClient(){
@@ -51,9 +52,11 @@ void Agence::AddBien(){
     cout<<"Veuillez saisir le prix:"<<endl;
     cin>>prix;
     cout<<"Veuillez saisir l'adresse:"<<endl;
-    cin>>adrs;
+    cin.ignore();
+    getline(cin,adrs);
     cout<<"Veuillez saisir le nom de vendeur:"<<endl;
-    cin>>nomVendeur;
+    cin.ignore();
+    getline(cin,nomVendeur);
 
     //verifier si le client est déja sur la liste
     map<string,Client>::iterator it;
