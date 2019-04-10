@@ -5,8 +5,10 @@
 #ifndef PROJECT_UNTOITPOURTOUS_BIEN_H
 #define PROJECT_UNTOITPOURTOUS_BIEN_H
 
-#include "../Client.h"
 #include <string>
+#include "../Client.h"
+
+using namespace std;
 class Bien {
 public:
     Bien();
@@ -31,7 +33,7 @@ public:
 
     int getM_ID() const;
 
-    const ClientVendeur &getM_Vendeur() const;
+    const ClientVendeur getM_Vendeur();
 
     void setMAdresse(const string &mAdresse);
 
@@ -42,6 +44,6 @@ protected:
     double m_Prix;
     double m_Surface;
     string m_Adresse;
-    ClientVendeur& m_Vendeur;
+    ClientVendeur &m_Vendeur;
 };
 #endif //PROJECT_UNTOITPOURTOUS_BIEN_H

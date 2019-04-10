@@ -7,7 +7,7 @@
 
 #include <map>
 #include <vector>
-
+#include "Bien/Bien.h"
 using namespace std;
 
 class Agence{
@@ -19,7 +19,7 @@ public:
     void AddBien();
 
 private:
-    map<string,Client> MapClient;
-    vector<Bien> ListBien;
+    map<string,class Client> MapClient;
+    vector<class Bien> ListBien;
 };
 #endif //PROJECT_UNTOITPOURTOUS_AGENCE_H

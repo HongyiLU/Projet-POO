@@ -18,14 +18,11 @@ public:
     Client(const string &mNom, const string &mAdresse);
     void setMNom(const string &mNom);
     void setMAdresse(const string &mAdresse);
-    virtual void AddBienVente(Bien);
-    virtual void AddBienVisit(Bien);
-    virtual void AddBienAchat(Bien);
 
-    Client operator=(const Client& c1){
-        this->m_nom=c1.m_nom;
-        this->m_Adresse=c1.m_Adresse;
-    }
+
+    const string &getMNom() const;
+
+    const string &getMAdresse1() const;
 
 protected:
     string m_Nom;
@@ -41,11 +38,16 @@ public:
     ClientVendeur(const string &mNom, const string &mAdresse);
 
 
-    void AddBienVente(Bien);
+
+
+    void operator=(const Client& c1){
+        this->m_Nom=c1.getMNom();
+        this->m_Adresse=c1.getMAdresse1();
+    }
 
 
 private:
-    vector<Bien> ListVente;
+    vector<class Bien> ListVente;
 };
 
 class ClientAcheteur:public Client{
@@ -56,11 +58,8 @@ public:
 
     ClientAcheteur(const string &mNom, const string &mAdresse);
 
-    void AddBienVisit(Bien);
-
-    void AddBienAchat(Bien);
 private:
-    vector<Bien> ListVisit;
-    vector<Bien> ListAchat;
+    vector<class Bien> ListVisit;
+    vector<class Bien> ListAchat;
 };
 #endif //PROJECT_UNTOITPOURTOUS_CLIENT_H

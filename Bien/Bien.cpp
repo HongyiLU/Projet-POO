@@ -33,7 +33,7 @@ int Bien::getM_ID() const {
     return m_ID;
 }
 
-const ClientVendeur &Bien::getM_Vendeur() const {
+const ClientVendeur &Bien::getM_Vendeur(){
     return m_Vendeur;
 }
 
