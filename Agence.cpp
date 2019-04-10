@@ -9,6 +9,7 @@
 #include "Bien/Maison.h"
 #include "Bien/Terrain.h"
 #include "Bien/LocauxProfessionnels.h"
+#include "ClientVendeur.h"
 #include <iostream>
 using namespace std;
 

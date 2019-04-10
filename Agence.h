@@ -19,7 +19,7 @@ public:
     void AddBien();
 
 private:
-    map<string,class Client> MapClient;
-    vector<class Bien> ListBien;
+    map<string, Client> MapClient;
+    vector<Bien> ListBien;
 };
 #endif //PROJECT_UNTOITPOURTOUS_AGENCE_H

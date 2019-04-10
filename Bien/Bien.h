@@ -13,37 +13,27 @@ class Bien {
 public:
     Bien();
 
-    Bien(double m_Prix, double m_Surface, int m_ID, const ClientVendeur &m_Vendeur);
+    Bien(double m_Prix, double m_Surface, int m_ID, const Client& m_Vendeur);
 
     Bien(const Bien &B);
 
     virtual ~Bien();
 
-    void setM_Prix(double m_Prix);
+    void setMId(int mId);
 
-    void setM_Surface(double m_Surface);
+    void setMPrix(double mPrix);
 
-    void setM_ID(int m_ID);
+    void setMSurface(double mSurface);
 
-    void setM_Vendeur(const ClientVendeur &m_Vendeur);
+    void setMAdresse(string mAdresse);
 
-    double getM_Prix() const;
-
-    double getM_Surface() const;
-
-    int getM_ID() const;
-
-    const ClientVendeur getM_Vendeur();
-
-    void setMAdresse(const string &mAdresse);
-
-    const string &getMAdresse() const;
+    void setMVendeur(Client &mVendeur);
 
 protected:
     int m_ID;
     double m_Prix;
     double m_Surface;
     string m_Adresse;
-    ClientVendeur &m_Vendeur;
+    Client m_Vendeur;
 };
 #endif //PROJECT_UNTOITPOURTOUS_BIEN_H

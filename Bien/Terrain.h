@@ -11,7 +11,7 @@ class Terrain: public Bien{
 public:
     Terrain() {}
 
-    Terrain(double mPrix, double mSurface, int mId, const ClientVendeur &mVendeur, bool mConstrutible) : Bien(mPrix,
+    Terrain(double mPrix, double mSurface, int mId, const Client &mVendeur, bool mConstrutible) : Bien(mPrix,
                                                                                                               mSurface,
                                                                                                               mId,
                                                                                                               mVendeur),

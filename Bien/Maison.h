@@ -11,7 +11,7 @@ class Maison: public Bien{
 public:
     Maison();
 
-    Maison(double mPrix, double mSurface, int mId, const ClientVendeur &mVendeur, int mNumpiece, bool mGarage,
+    Maison(double mPrix, double mSurface, int mId, const Client &mVendeur, int mNumpiece, bool mGarage,
            bool mJardin, bool mPiscine);
 
     virtual ~Maison();

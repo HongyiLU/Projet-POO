@@ -6,10 +6,12 @@
 
 Bien::Bien() {}
 
-Bien::Bien(double m_Prix, double m_Surface, int m_ID, const ClientVendeur &m_Vendeur) : m_Prix(m_Prix),
-                                                                                        m_Surface(m_Surface),
-                                                                                        m_ID(m_ID),
-                                                                                        m_Vendeur(m_Vendeur) {}
+Bien::Bien(double Prix, double Surface, int ID, const Client &Vendeur) {
+    m_Prix=Prix;
+    m_Surface=Surface;
+    m_ID=ID;
+    m_Vendeur=Vendeur;
+}
 Bien::Bien(const Bien &B) {
     this->m_ID=B.m_ID;
     this->m_Prix=B.m_Prix;
@@ -20,50 +22,22 @@ Bien::Bien(const Bien &B) {
 Bien::~Bien() {}
 
 
-
-double Bien::getM_Prix() const {
-    return m_Prix;
+void Bien::setMId(int mId) {
+    m_ID = mId;
 }
 
-double Bien::getM_Surface() const {
-    return m_Surface;
+void Bien::setMPrix(double mPrix) {
+    m_Prix = mPrix;
 }
 
-int Bien::getM_ID() const {
-    return m_ID;
+void Bien::setMSurface(double mSurface) {
+    m_Surface = mSurface;
 }
 
-const ClientVendeur &Bien::getM_Vendeur(){
-    return m_Vendeur;
-}
-
-void Bien::setM_Prix(double m_Prix) {
-    Bien::m_Prix = m_Prix;
-}
-
-void Bien::setM_Surface(double m_Surface) {
-    Bien::m_Surface = m_Surface;
-}
-
-void Bien::setM_ID(int m_ID) {
-    Bien::m_ID = m_ID;
-}
-
-void Bien::setM_Vendeur(const ClientVendeur &m_Vendeur) {
-    Bien::m_Vendeur = m_Vendeur;
-}
-
-const string &Bien::getMAdresse() const {
-    return m_Adresse;
-}
-
-void Bien::setMAdresse(const string &mAdresse) {
+void Bien::setMAdresse(string mAdresse) {
     m_Adresse = mAdresse;
 }
 
-
-
-
-
-
-
+void Bien::setMVendeur(Client &mVendeur) {
+    m_Vendeur = mVendeur;
+}

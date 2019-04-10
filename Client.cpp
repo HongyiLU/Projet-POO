@@ -27,17 +27,9 @@ const string &Client::getMAdresse1() const {
     return m_Adresse;
 }
 
-ClientVendeur::ClientVendeur(const string &mNom, const string &mAdresse) : Client(mNom, mAdresse) {}
-
-ClientVendeur::ClientVendeur() {}
-
-ClientVendeur::~ClientVendeur() {}
 
 
 
-ClientAcheteur::ClientAcheteur(const string &mNom, const string &mAdresse) : Client(mNom, mAdresse) {}
 
-ClientAcheteur::ClientAcheteur() {}
 
-ClientAcheteur::~ClientAcheteur() {}
 

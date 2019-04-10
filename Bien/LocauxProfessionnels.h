@@ -11,7 +11,7 @@ class LocauxProfessionnels: public Bien{
 public:
     LocauxProfessionnels() {}
 
-    LocauxProfessionnels(double mPrix, double mSurface, int mId, const ClientVendeur &mVendeur, double mTailleVitrine,
+    LocauxProfessionnels(double mPrix, double mSurface, int mId, const Client &mVendeur, double mTailleVitrine,
                          bool mPieceDeStock) : Bien(mPrix, mSurface, mId, mVendeur), m_TailleVitrine(mTailleVitrine),
                                                m_PieceDeStock(mPieceDeStock) {}
 

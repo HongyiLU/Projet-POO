@@ -5,7 +5,7 @@
 
 Appartement::Appartement() {}
 
-Appartement::Appartement(double m_Prix, double m_Surface, int m_ID, const ClientVendeur &m_Vendeur, int m_NumPiece,
+Appartement::Appartement(double m_Prix, double m_Surface, int m_ID, const Client &m_Vendeur, int m_NumPiece,
                          int m_Etage, bool m_Garage, bool m_Cave, bool m_Balcon, int m_NumTotal) :
                          Bien(m_Prix,m_Surface, m_ID,m_Vendeur),
                          m_NumPiece(m_NumPiece),

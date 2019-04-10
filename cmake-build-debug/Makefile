@@ -257,6 +257,60 @@ Client.cpp.s:
 	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
+ClientAcheteur.obj: ClientAcheteur.cpp.obj
+
+.PHONY : ClientAcheteur.obj
+
+# target to build an object file
+ClientAcheteur.cpp.obj:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientAcheteur.cpp.obj
+.PHONY : ClientAcheteur.cpp.obj
+
+ClientAcheteur.i: ClientAcheteur.cpp.i
+
+.PHONY : ClientAcheteur.i
+
+# target to preprocess a source file
+ClientAcheteur.cpp.i:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientAcheteur.cpp.i
+.PHONY : ClientAcheteur.cpp.i
+
+ClientAcheteur.s: ClientAcheteur.cpp.s
+
+.PHONY : ClientAcheteur.s
+
+# target to generate assembly for a file
+ClientAcheteur.cpp.s:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientAcheteur.cpp.s
+.PHONY : ClientAcheteur.cpp.s
+
+ClientVendeur.obj: ClientVendeur.cpp.obj
+
+.PHONY : ClientVendeur.obj
+
+# target to build an object file
+ClientVendeur.cpp.obj:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientVendeur.cpp.obj
+.PHONY : ClientVendeur.cpp.obj
+
+ClientVendeur.i: ClientVendeur.cpp.i
+
+.PHONY : ClientVendeur.i
+
+# target to preprocess a source file
+ClientVendeur.cpp.i:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientVendeur.cpp.i
+.PHONY : ClientVendeur.cpp.i
+
+ClientVendeur.s: ClientVendeur.cpp.s
+
+.PHONY : ClientVendeur.s
+
+# target to generate assembly for a file
+ClientVendeur.cpp.s:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/ClientVendeur.cpp.s
+.PHONY : ClientVendeur.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -308,6 +362,12 @@ help:
 	@echo ... Client.obj
 	@echo ... Client.i
 	@echo ... Client.s
+	@echo ... ClientAcheteur.obj
+	@echo ... ClientAcheteur.i
+	@echo ... ClientAcheteur.s
+	@echo ... ClientVendeur.obj
+	@echo ... ClientVendeur.i
+	@echo ... ClientVendeur.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
