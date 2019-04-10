@@ -23,7 +23,7 @@ public:
     void AddBien();
     void AddPropoAchat();
 private:
-    static map<string, Client> MapClient;
+    map<string, Client> MapClient;
     map<string, ClientVendeur> MapClientVendeur;
     map<string, ClientAcheteur> MapClientAcheteur;
     vector<Bien> ListBien;
