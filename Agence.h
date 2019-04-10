@@ -27,7 +27,7 @@ public:
         }
     }
     void AddBien(){
-        Bien b()
+        Bien b();
     }
 private:
     map<string,Client> MapClient;
