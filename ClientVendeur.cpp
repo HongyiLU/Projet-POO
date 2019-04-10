@@ -11,5 +11,5 @@ ClientVendeur::ClientVendeur() {}
 ClientVendeur::~ClientVendeur() {}
 
 void ClientVendeur::AddBien(Bien b1){
-
+    this->ListVente.push_back(b1);
 };

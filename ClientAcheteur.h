@@ -17,6 +17,15 @@ public:
 
     ClientAcheteur(const string &mNom, const string &mAdresse);
 
+    void AddVisit(Bien);
+
+    void AddAchat();
+
+    void operator=(const Client& c1){
+        this->m_Nom=c1.getMNom();
+        this->m_Adresse=c1.getMAdresse1();
+    }
+
 private:
     vector<Bien> ListVisit;
     vector<Bien> ListAchat;

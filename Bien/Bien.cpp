@@ -41,3 +41,7 @@ void Bien::setMAdresse(string mAdresse) {
 void Bien::setMVendeur(Client &mVendeur) {
     m_Vendeur = mVendeur;
 }
+
+int Bien::getMId() const {
+    return m_ID;
+}
