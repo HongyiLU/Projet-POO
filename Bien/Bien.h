@@ -6,7 +6,7 @@
 #define PROJECT_UNTOITPOURTOUS_BIEN_H
 
 #include "../Client.h"
-
+#include <string>
 class Bien {
 public:
     Bien();

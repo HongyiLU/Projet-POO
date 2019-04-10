@@ -1,6 +1,8 @@
 #include <iostream>
+#include "Agence.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Agence a1;
+    a1.AddBien();
+    a1.AddClient();
 }

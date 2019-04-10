@@ -124,8 +124,5 @@ void Agence::AddBien(){
             LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
             ListBien.push_back(l1);
         }
-
-
-
     }
 }
