@@ -6,6 +6,8 @@
 #include "Client.h"
 #include "Bien/Appartement.h"
 #include "Agence.h"
+#include "Bien/Maison.h"
+#include "Bien/Terrain.h"
 #include <iostream>
 using namespace std;
 
@@ -86,6 +88,7 @@ void Agence::AddBien(){
             ListBien.push_back(a1);
             break;
         }
+
         case 'm':{
             int numPiece;
             bool garage;
@@ -97,8 +100,27 @@ void Agence::AddBien(){
             cin>>jardin;
             cout<<"Est-ce que cet appartement a un piscine? 1 Oui 0 Non"<<endl;
             cin>>piscine;
-
+            Maison m1(prix,surface,ID,vendeur,numPiece,garage,jardin,piscine);
+            ListBien.push_back(m1);
+            break;
         }
-            ;
+
+        case 't':{
+            bool construtible;
+            cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
+            cin>>construtible;
+            Terrain t1(prix,surface,ID,vendeur,construtible);
+        }
+
+        case 'l':{
+            double surfaceVitrine;
+            bool pieceStock;
+            cout<<"Veuillez saisir le surface de vitrine:"<<endl;
+            cin>>surfaceVitrine;
+            cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
+        }
+
+
+
     }
 }

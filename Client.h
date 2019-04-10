@@ -18,11 +18,8 @@ public:
     Client(const string &mNom, const string &mAdresse);
     void setMNom(const string &mNom);
     void setMAdresse(const string &mAdresse);
-
     virtual void AddBienVente(Bien b1);
-
     virtual void AddBienVisit(Bien b1);
-
     virtual void AddBienAchat(Bien b1);
 protected:
     string m_Nom;
