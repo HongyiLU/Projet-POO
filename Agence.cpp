@@ -6,8 +6,6 @@
 #include "Client.h"
 #include "Bien/Appartement.h"
 #include "Agence.h"
-#include <map>
-#include <list>
 #include <iostream>
 using namespace std;
 
@@ -28,7 +26,7 @@ void Agence::AddClient(){
 }
 
 void Agence::AddBien(){
-    int type;
+    char type;
     int ID;
     double surface;
     double prix;
@@ -36,10 +34,10 @@ void Agence::AddBien(){
     string nomVendeur;
     ClientVendeur vendeur;
     cout<<"Veuillez choisir le type de bien:"<<endl;
-    cout<<"1 Appartement"<<endl;
-    cout<<"2 Maison"<<endl;
-    cout<<"3 Terrain"<<endl;
-    cout<<"4 Locaux professionenls:"<<endl;
+    cout<<"a Appartement"<<endl;
+    cout<<"m Maison"<<endl;
+    cout<<"t Terrain"<<endl;
+    cout<<"l Locaux professionenls:"<<endl;
     cin>>type;
     cout<<"Veuillez saisir le ID de ce bien:"<<endl;
     cin>>ID;
@@ -65,7 +63,7 @@ void Agence::AddBien(){
     }
 
     switch (type){
-        case 1:
+        case 'a':{
             int numPiece;
             int etage;
             int numTotal;
@@ -85,6 +83,22 @@ void Agence::AddBien(){
             cout<<"Est-ce que cet appartement a un balcon? 1 Oui 0 Non"<<endl;
             cin>>balcon;
             Appartement a1(prix,surface,ID,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
-            ListBien.insert(a1)
+            ListBien.push_back(a1);
+            break;
+        }
+        case 'm':{
+            int numPiece;
+            bool garage;
+            bool jardin;
+            bool piscine;
+            cout<<"Veuillez saisir le nombre de piece:"<<endl;
+            cin>>numPiece;
+            cout<<"Est-ce que cet appartement a un jardin? 1 Oui 0 Non"<<endl;
+            cin>>jardin;
+            cout<<"Est-ce que cet appartement a un piscine? 1 Oui 0 Non"<<endl;
+            cin>>piscine;
+
+        }
+            ;
     }
 }

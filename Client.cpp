@@ -23,14 +23,18 @@ ClientVendeur::ClientVendeur(const string &mNom, const string &mAdresse) : Clien
 
 ClientVendeur::ClientVendeur() {}
 
-ClientVendeur::~ClientVendeur() {
+ClientVendeur::~ClientVendeur() {}
 
+void ClientVendeur::AddBienVente(Bien b1) {
+    ListVente.push_back(b1);
 }
 
 ClientAcheteur::ClientAcheteur(const string &mNom, const string &mAdresse) : Client(mNom, mAdresse) {}
 
 ClientAcheteur::ClientAcheteur() {}
 
-ClientAcheteur::~ClientAcheteur() {
+ClientAcheteur::~ClientAcheteur() {}
 
+void ClientAcheteur::AddBienVisit(Bien b1) {
+    ListVisit.push_back(b1);
 }

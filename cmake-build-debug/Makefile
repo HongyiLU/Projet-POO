@@ -203,6 +203,33 @@ Bien/Bien.cpp.s:
 	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Bien/Bien.cpp.s
 .PHONY : Bien/Bien.cpp.s
 
+Bien/Maison.obj: Bien/Maison.cpp.obj
+
+.PHONY : Bien/Maison.obj
+
+# target to build an object file
+Bien/Maison.cpp.obj:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Bien/Maison.cpp.obj
+.PHONY : Bien/Maison.cpp.obj
+
+Bien/Maison.i: Bien/Maison.cpp.i
+
+.PHONY : Bien/Maison.i
+
+# target to preprocess a source file
+Bien/Maison.cpp.i:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Bien/Maison.cpp.i
+.PHONY : Bien/Maison.cpp.i
+
+Bien/Maison.s: Bien/Maison.cpp.s
+
+.PHONY : Bien/Maison.s
+
+# target to generate assembly for a file
+Bien/Maison.cpp.s:
+	$(MAKE) -f CMakeFiles\Projet-POO.dir\build.make CMakeFiles/Projet-POO.dir/Bien/Maison.cpp.s
+.PHONY : Bien/Maison.cpp.s
+
 Client.obj: Client.cpp.obj
 
 .PHONY : Client.obj
@@ -275,6 +302,9 @@ help:
 	@echo ... Bien/Bien.obj
 	@echo ... Bien/Bien.i
 	@echo ... Bien/Bien.s
+	@echo ... Bien/Maison.obj
+	@echo ... Bien/Maison.i
+	@echo ... Bien/Maison.s
 	@echo ... Client.obj
 	@echo ... Client.i
 	@echo ... Client.s

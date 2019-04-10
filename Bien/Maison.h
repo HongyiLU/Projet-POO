@@ -9,6 +9,21 @@
 
 class Maison: public Bien{
 public:
+    Maison();
+
+    Maison(double mPrix, double mSurface, int mId, const ClientVendeur &mVendeur, int mNumpiece, bool mGarage,
+           bool mJardin, bool mPiscine);
+
+    virtual ~Maison();
+
+    void setMNumpiece(int mNumpiece);
+
+    void setMGarage(bool mGarage);
+
+    void setMJardin(bool mJardin);
+
+    void setMPiscine(bool mPiscine);
+
 private:
     int m_Numpiece;
     bool m_Garage;

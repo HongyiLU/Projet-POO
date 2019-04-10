@@ -5,12 +5,8 @@
 #ifndef PROJECT_UNTOITPOURTOUS_AGENCE_H
 #define PROJECT_UNTOITPOURTOUS_AGENCE_H
 
-#include "Bien/Bien.h"
-#include "Client.h"
-#include "Bien/Appartement.h"
 #include <map>
-#include <list>
-#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -24,7 +20,6 @@ public:
 
 private:
     map<string,Client> MapClient;
-    list<Bien> ListBien;
-
+    vector<Bien> ListBien;
 };
 #endif //PROJECT_UNTOITPOURTOUS_AGENCE_H

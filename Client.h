@@ -6,6 +6,7 @@
 #define PROJECT_UNTOITPOURTOUS_CLIENT_H
 
 #include <string>
+#include <vector>
 #include "Bien/Bien.h"
 
 using namespace std;
@@ -18,6 +19,11 @@ public:
     void setMNom(const string &mNom);
     void setMAdresse(const string &mAdresse);
 
+    virtual void AddBienVente(Bien b1);
+
+    virtual void AddBienVisit(Bien b1);
+
+    virtual void AddBienAchat(Bien b1);
 protected:
     string m_Nom;
     string m_Adresse;
@@ -35,8 +41,12 @@ public:
         this.m_nom->c1.m_nom;
         this->m_Adresse->c1.m_Adresse;
     }
+
+    void AddBienVente(Bien b1);
+
+
 private:
-    list<Bien> ListVente;
+    vector<Bien> ListVente;
 };
 
 class ClientAcheteur:public Client{
@@ -46,7 +56,12 @@ public:
     virtual ~ClientAcheteur();
 
     ClientAcheteur(const string &mNom, const string &mAdresse);
+
+    void AddBienVisit(Bien b1);
+
+    void AddBienAchat(Bien b1);
 private:
-    list<Bien> ListVisit;
+    vector<Bien> ListVisit;
+    vector<Bien> ListAchat;
 };
 #endif //PROJECT_UNTOITPOURTOUS_CLIENT_H
