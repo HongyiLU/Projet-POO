@@ -23,7 +23,7 @@ void Agence::AddClient(){
     cin>>adrs;
     c.setMNom(nom);
     c.setMAdresse(adrs);
-    pair<map<string,Client>::iterator , bool> ret;
+   pair<map<string,Client>::iterator , bool> ret;
     ret = MapClient.insert(pair<string,Client>(nom,c));
     if(ret.second==false){
         cout<<"Client is already exist"<<endl;
@@ -114,6 +114,7 @@ void Agence::AddBien(){
             cin>>construtible;
             Terrain t1(prix,surface,ID,vendeur,construtible);
             ListBien.push_back(t1);
+            break;
         }
 
         case 'l':{
@@ -125,6 +126,7 @@ void Agence::AddBien(){
             cin>>pieceStock;
             LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
             ListBien.push_back(l1);
+            break;
         }
     }
 }

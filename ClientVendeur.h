@@ -25,6 +25,7 @@ public:
         this->m_Adresse=c1.getMAdresse1();
     }
 
+    void AddBien(Bien);
 
 private:
     vector<Bien> ListVente;
