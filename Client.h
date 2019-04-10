@@ -19,10 +19,10 @@ public:
     void setMNom(const string &mNom);
     void setMAdresse(const string &mAdresse);
 
-
     const string &getMNom() const;
 
     const string &getMAdresse1() const;
+
 
 protected:
     string m_Nom;

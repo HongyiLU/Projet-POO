@@ -28,6 +28,7 @@ void Agence::AddClient(){
     if(ret.second==false){
         cout<<"Client is already exist"<<endl;
     }
+
 }
 
 void Agence::AddBien(){
@@ -37,7 +38,6 @@ void Agence::AddBien(){
     double prix;
     string adrs;
     string nomVendeur;
-    ClientVendeur vendeur;
     cout<<"Veuillez choisir le type de bien:"<<endl;
     cout<<"a Appartement"<<endl;
     cout<<"m Maison"<<endl;
@@ -62,9 +62,10 @@ void Agence::AddBien(){
         Client c1;
         c1.setMNom(nomVendeur);
         MapClient.insert(it,pair<string,Client>(nomVendeur,c1));
-        vendeur=MapClient[nomVendeur];
+
+        MapClientVendeur[nomVendeur]=MapClient[nomVendeur];
     }else{
-        vendeur=MapClient[nomVendeur];
+        MapClientVendeur[nomVendeur]=MapClient[nomVendeur];
     }
 
     switch (type){
@@ -87,8 +88,9 @@ void Agence::AddBien(){
             cin>>cave;
             cout<<"Est-ce que cet appartement a un balcon? 1 Oui 0 Non"<<endl;
             cin>>balcon;
-            Appartement a1(prix,surface,ID,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
+            Appartement a1(prix,surface,ID,MapClientVendeur[nomVendeur],numPiece,etage,garage,cave,balcon,numTotal);
             ListBien.push_back(a1);
+            MapClientVendeur[nomVendeur].AddBien(a1);
             break;
         }
 
@@ -103,8 +105,9 @@ void Agence::AddBien(){
             cin>>jardin;
             cout<<"Est-ce que cette maison a un piscine? 1 Oui 0 Non"<<endl;
             cin>>piscine;
-            Maison m1(prix,surface,ID,vendeur,numPiece,garage,jardin,piscine);
+            Maison m1(prix,surface,ID,MapClientVendeur[nomVendeur],numPiece,garage,jardin,piscine);
             ListBien.push_back(m1);
+            MapClientVendeur[nomVendeur].AddBien(m1);
             break;
         }
 
@@ -112,8 +115,9 @@ void Agence::AddBien(){
             bool construtible;
             cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
             cin>>construtible;
-            Terrain t1(prix,surface,ID,vendeur,construtible);
+            Terrain t1(prix,surface,ID,MapClientVendeur[nomVendeur],construtible);
             ListBien.push_back(t1);
+            MapClientVendeur[nomVendeur].AddBien(t1);
             break;
         }
 
@@ -124,9 +128,39 @@ void Agence::AddBien(){
             cin>>surfaceVitrine;
             cout<<"Est-ce qu'il a une piece de stock? 1 Oui 0 Non"<<endl;
             cin>>pieceStock;
-            LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
+            LocauxProfessionnels l1(prix,surface,ID,MapClientVendeur[nomVendeur],surfaceVitrine,pieceStock);
             ListBien.push_back(l1);
+            MapClientVendeur[nomVendeur].AddBien(l1);
             break;
         }
     }
 }
+
+void Agence::AddPropoAchat() {
+    Bien b1;
+    string nomAcheteur;
+    int ID;
+    cout<<"Veuillez saisir le nom d'acheteur:"<<endl;
+    cin>>nomAcheteur;
+    cout<<"Veuillez saisir l'ID de bien:"<<endl;
+    cin>>ID;
+    map<string,Client>::iterator it;
+    it=MapClient.find(nomAcheteur);
+    if (it==MapClient.end()){
+        Client c1;
+        c1.setMNom(nomAcheteur);
+        MapClient.insert(it,pair<string,Client>(nomAcheteur,c1));
+        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+    }else{
+        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+    }
+
+    for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
+        if(ret->getMId()==ID){
+            b1=*ret;
+            break;
+        }
+    }
+    MapClientAcheteur[nomAcheteur].AddVisit(b1);
+}
+

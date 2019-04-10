@@ -29,6 +29,8 @@ public:
 
     void setMVendeur(Client &mVendeur);
 
+    int getMId() const;
+
 protected:
     int m_ID;
     double m_Prix;

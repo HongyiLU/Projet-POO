@@ -17,9 +17,6 @@ public:
 
     ClientVendeur(const string &mNom, const string &mAdresse);
 
-
-
-
     void operator=(const Client& c1){
         this->m_Nom=c1.getMNom();
         this->m_Adresse=c1.getMAdresse1();
