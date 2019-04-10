@@ -15,9 +15,10 @@ void Agence::AddClient(){
     Client c;
     string nom;
     string adrs;
-    cout<<"Veuillez saisir le nom de client...."<<endl;
+    cout<<"Veuillez saisir le nom de client"<<endl;
     cin>>nom;
     cout<<"Veuillez saisir l'adresse de client"<<endl;
+    cin<<adrs;
     c.setMNom(nom);
     c.setMAdresse(adrs);
     pair<map<string,Client>::iterator , bool> ret;
