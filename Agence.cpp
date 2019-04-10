@@ -55,13 +55,38 @@ void Agence::AddBien(){
 
     cout<<"Veuillez saisir le ID de ce bien:"<<endl;
     cin>>ID;
+    while (!cin.good())
+    {
+        cout << "Veuillez saisir un nombre";
+        cin.clear();
+        cin.sync();
+        cin >> ID;
+    }
+
     cout<<"Veuillez saisir le surface:"<<endl;
     cin>>surface;
+    while (!cin.good())
+    {
+        cout << "Veuillez saisir un nombre";
+        cin.clear();
+        cin.sync();
+        cin >> surface;
+    }
+
     cout<<"Veuillez saisir le prix:"<<endl;
     cin>>prix;
+    while (!cin.good())
+    {
+        cout << "Veuillez saisir un nombre";
+        cin.clear();
+        cin.sync();
+        cin >> prix;
+    }
+
     cout<<"Veuillez saisir l'adresse:"<<endl;
     cin.ignore();
     getline(cin,adrs);
+
     cout<<"Veuillez saisir le nom de vendeur:"<<endl;
     cin.ignore();
     getline(cin,nomVendeur);
