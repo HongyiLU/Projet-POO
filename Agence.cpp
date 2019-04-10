@@ -39,12 +39,20 @@ void Agence::AddBien(){
     string adrs;
     string nomVendeur;
     ClientVendeur vendeur;
-    cout<<"Veuillez choisir le type de bien:"<<endl;
-    cout<<"a Appartement"<<endl;
-    cout<<"m Maison"<<endl;
-    cout<<"t Terrain"<<endl;
-    cout<<"l Locaux professionenls:"<<endl;
+    cout <<"Veuillez choisir le type de bien:"<<endl;
+    cout <<"a Appartement"<<endl;
+    cout <<"m Maison"<<endl;
+    cout <<"t Terrain"<<endl;
+    cout <<"l Locaux professionenls:"<<endl;
     cin>>type;
+    while (!cin.good())
+    {
+        cout << "Veuillez saisir un type parmi a, m ,t ,l";
+        cin.clear();
+        cin.sync();
+        cin >> type;
+    }
+
     cout<<"Veuillez saisir le ID de ce bien:"<<endl;
     cin>>ID;
     cout<<"Veuillez saisir le surface:"<<endl;
