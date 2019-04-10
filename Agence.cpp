@@ -26,7 +26,7 @@ void Agence::AddClient(){
     pair<map<string,Client>::iterator , bool> ret;
     ret = MapClient.insert(pair<string,Client>(nom,c));
     if(ret.second==false){
-        cout<<"Client is already exist"<<endl;
+        cout<<"Cliemt existe deja"<<endl;
     }
 }
 
@@ -55,7 +55,7 @@ void Agence::AddBien(){
     cout<<"Veuillez saisir le nom de vendeur:"<<endl;
     cin>>nomVendeur;
 
-    //verifier l'xistance de client
+    //verifier si le client est déja sur la liste
     map<string,Client>::iterator it;
     it=MapClient.find(nomVendeur);
     if (it==MapClient.end()){
@@ -114,6 +114,7 @@ void Agence::AddBien(){
             cin>>construtible;
             Terrain t1(prix,surface,ID,vendeur,construtible);
             ListBien.push_back(t1);
+            break;
         }
 
         case 'l':{
@@ -121,10 +122,12 @@ void Agence::AddBien(){
             bool pieceStock;
             cout<<"Veuillez saisir le surface de vitrine:"<<endl;
             cin>>surfaceVitrine;
+
             cout<<"Est-ce qu'il a une piece de stock? 1 Oui 0 Non"<<endl;
             cin>>pieceStock;
             LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
             ListBien.push_back(l1);
+            break;
         }
     }
 }
