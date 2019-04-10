@@ -9,3 +9,7 @@ ClientVendeur::ClientVendeur(const string &mNom, const string &mAdresse) : Clien
 ClientVendeur::ClientVendeur() {}
 
 ClientVendeur::~ClientVendeur() {}
+
+void ClientVendeur::AddBien(Bien b1){
+
+};

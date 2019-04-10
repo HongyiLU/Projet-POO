@@ -23,7 +23,7 @@ void Agence::AddClient(){
     cin>>adrs;
     c.setMNom(nom);
     c.setMAdresse(adrs);
-    pair<map<string,Client>::iterator , bool> ret;
+   pair<map<string,Client>::iterator , bool> ret;
     ret = MapClient.insert(pair<string,Client>(nom,c));
     if(ret.second==false){
         cout<<"Cliemt existe deja"<<endl;
