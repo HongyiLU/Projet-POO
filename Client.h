@@ -12,8 +12,11 @@ using namespace std;
 
 class Client{
 public:
+    Client();
+    virtual ~Client();
     Client(const string &mNom, const string &mAdresse);
-
+    void setMNom(const string &mNom);
+    void setMAdresse(const string &mAdresse);
 protected:
     string m_Nom;
     string m_Adresse;
