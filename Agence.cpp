@@ -8,6 +8,7 @@
 #include "Agence.h"
 #include "Bien/Maison.h"
 #include "Bien/Terrain.h"
+#include "Bien/LocauxProfessionnels.h"
 #include <iostream>
 using namespace std;
 
@@ -96,9 +97,9 @@ void Agence::AddBien(){
             bool piscine;
             cout<<"Veuillez saisir le nombre de piece:"<<endl;
             cin>>numPiece;
-            cout<<"Est-ce que cet appartement a un jardin? 1 Oui 0 Non"<<endl;
+            cout<<"Est-ce que cette maison a un jardin? 1 Oui 0 Non"<<endl;
             cin>>jardin;
-            cout<<"Est-ce que cet appartement a un piscine? 1 Oui 0 Non"<<endl;
+            cout<<"Est-ce que cette maison a un piscine? 1 Oui 0 Non"<<endl;
             cin>>piscine;
             Maison m1(prix,surface,ID,vendeur,numPiece,garage,jardin,piscine);
             ListBien.push_back(m1);
@@ -110,6 +111,7 @@ void Agence::AddBien(){
             cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
             cin>>construtible;
             Terrain t1(prix,surface,ID,vendeur,construtible);
+            ListBien.push_back(t1);
         }
 
         case 'l':{
@@ -117,7 +119,10 @@ void Agence::AddBien(){
             bool pieceStock;
             cout<<"Veuillez saisir le surface de vitrine:"<<endl;
             cin>>surfaceVitrine;
-            cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
+            cout<<"Est-ce qu'il a une piece de stock? 1 Oui 0 Non"<<endl;
+            cin>>pieceStock;
+            LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
+            ListBien.push_back(l1);
         }
 
 
