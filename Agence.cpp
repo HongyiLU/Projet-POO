@@ -46,7 +46,7 @@ void Agence::AddBien(){
     cout <<"t Terrain"<<endl;
     cout <<"l Locaux professionenls:"<<endl;
     cin>>type;
-    while (!cin.good()&&type!='a'&&type!='m'&&type!='t'&&type!='l')
+    while (!cin.good()&&type!='a'&&'m'&&'t'&&'l')
     {
         cout << "Veuillez saisir un type parmi a, m ,t ,l" <<endl;
         cin.clear();
