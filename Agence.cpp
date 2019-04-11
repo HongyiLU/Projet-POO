@@ -226,23 +226,6 @@ void Agence::AddPropoAchat() {
         cin.sync();
         cin >> ID;
     }
-    map<string, Client>::iterator it;
-    it = MapClient.find(nomAcheteur);
-    if (it == MapClient.end()) {
-        Client c1;
-        c1.setMNom(nomAcheteur);
-        MapClient.insert(it, pair<string, Client>(nomAcheteur, c1));
-        MapClientAcheteur[nomAcheteur] = MapClient[nomAcheteur];
-    } else {
-        MapClientAcheteur[nomAcheteur] = MapClient[nomAcheteur];
-    }
-
-    for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
-        if (ret->getMId() == ID) {
-            b1 = *ret;
-            break;
-        }
-    }
     MapClientAcheteur[nomAcheteur].AddVisit(b1);
 }
 
@@ -272,23 +255,6 @@ void Agence::AddAchatEff() {
         cin.clear();
         cin.sync();
         cin >> ID;
-    }
-    map<string, Client>::iterator it;
-    it = MapClient.find(nomAcheteur);
-    if (it == MapClient.end()) {
-        Client c1;
-        c1.setMNom(nomAcheteur);
-        MapClient.insert(it, pair<string, Client>(nomAcheteur, c1));
-        MapClientAcheteur[nomAcheteur] = MapClient[nomAcheteur];
-    } else {
-        MapClientAcheteur[nomAcheteur] = MapClient[nomAcheteur];
-    }
-
-    for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
-        if (ret->getMId() == ID) {
-            b1 = *ret;
-            break;
-        }
     }
     MapClientAcheteur[nomAcheteur].AddAchat(b1);
     SuppBien(b1);

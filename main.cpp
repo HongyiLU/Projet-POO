@@ -2,6 +2,7 @@
 #include "Agence.h"
 
 int main() {
+    bool a=0;
     Agence a1;
     a1.AddClient();
     a1.AddBien();
