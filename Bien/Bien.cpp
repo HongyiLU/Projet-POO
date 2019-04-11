@@ -6,7 +6,7 @@
 
 Bien::Bien() {}
 
-Bien::Bien(double Prix, double Surface, int ID, const Client &Vendeur) {
+Bien::Bien(double Prix, double Surface, int ID, string Adresse, const Client &Vendeur) {
     m_Prix=Prix;
     m_Surface=Surface;
     m_ID=ID;

@@ -5,8 +5,8 @@
 
 Maison::Maison() {}
 
-Maison::Maison(double mPrix, double mSurface, int mId, const Client &mVendeur, int mNumpiece, bool mGarage,
-               bool mJardin, bool mPiscine) : Bien(mPrix, mSurface, mId, mVendeur), m_Numpiece(mNumpiece),
+Maison::Maison(double mPrix, double mSurface, int mId, string mAdresse, const Client &mVendeur, int mNumpiece, bool mGarage,
+               bool mJardin, bool mPiscine) : Bien(mPrix, mSurface, mId, mAdresse, mVendeur), m_Numpiece(mNumpiece),
                                               m_Garage(mGarage), m_Jardin(mJardin), m_Piscine(mPiscine) {}
 
 Maison::~Maison() {

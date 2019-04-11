@@ -98,17 +98,12 @@ void Agence::AddBien(){
     cout<<"Veuillez saisir le nom de vendeur:"<<endl;
     cin.ignore();
     getline(cin,nomVendeur);
-
     //verifier si le client est déja sur la liste
-    if (ExisteClient(nomVendeur)){
-        Client c1;
-        c1.setMNom(nomVendeur);
-        map<string,Client>::iterator it;
-        MapClient.insert(it,pair<string,Client>(nomVendeur,c1));
-        vendeur=MapClient[nomVendeur];
-    }else{
-        vendeur=MapClient[nomVendeur];
+    while (!ExisteClient(nomVendeur)){
+        cout<<"Client n'existe pas, veuillez saisir un client qui existe ou enregistrer ce client d'abord"<<endl;
+        cin>>nomVendeur;
     }
+        vendeur=MapClient[nomVendeur];
 
     switch (type){
         case 'a':{
@@ -154,7 +149,7 @@ void Agence::AddBien(){
             cin>>cave;
             cout<<"Est-ce que cet appartement a un balcon? 1 Oui 0 Non"<<endl;
             cin>>balcon;
-            Appartement a1(prix,surface,ID,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
+            Appartement a1(prix,surface,ID,adrs,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
             ListBien.push_back(a1);
             break;
         }
@@ -178,7 +173,7 @@ void Agence::AddBien(){
             cin>>jardin;
             cout<<"Est-ce que cette maison a un piscine? 1 Oui 0 Non"<<endl;
             cin>>piscine;
-            Maison m1(prix,surface,ID,vendeur,numPiece,garage,jardin,piscine);
+            Maison m1(prix,surface,ID,adrs,vendeur,numPiece,garage,jardin,piscine);
             ListBien.push_back(m1);
             break;
         }
@@ -187,7 +182,7 @@ void Agence::AddBien(){
             bool construtible;
             cout<<"Est-il construtible? 1 Oui 0 Non"<<endl;
             cin>>construtible;
-            Terrain t1(prix,surface,ID,vendeur,construtible);
+            Terrain t1(prix,surface,ID,adrs,vendeur,construtible);
             ListBien.push_back(t1);
             break;
         }
@@ -207,7 +202,7 @@ void Agence::AddBien(){
 
             cout<<"Est-ce qu'il a une piece de stock? 1 Oui 0 Non"<<endl;
             cin>>pieceStock;
-            LocauxProfessionnels l1(prix,surface,ID,vendeur,surfaceVitrine,pieceStock);
+            LocauxProfessionnels l1(prix,surface,ID,adrs,vendeur,surfaceVitrine,pieceStock);
             ListBien.push_back(l1);
             break;
         }
@@ -220,18 +215,20 @@ void Agence::AddPropoAchat() {
     int ID;
     cout<<"Veuillez saisir le nom d'acheteur:"<<endl;
     cin>>nomAcheteur;
+    while (!ExisteClient(nomAcheteur)){
+        cout<<"Client n'existe pas, veuillez saisir un client qui existe ou enregistrer ce client d'abord"<<endl;
+        cin.clear();
+        cin>>nomAcheteur;
+    }
+    MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
     cout<<"Veuillez saisir l'ID de bien:"<<endl;
     cin>>ID;
-    while (!cin.good())
+    while (!cin.good()||!Existe(ID))
     {
-        cout << "saisir un correct type de nombre"<<endl;
+        cout << "Donnee saisie n'est pas le type correspond ou ce ID n'existe pas, veuillez saisir un nouveau"<<endl;
         cin.clear();
         cin.sync();
         cin >> ID;
-        while(!Existe(ID)){
-            cout<<"Ce bien n'existe pas, veuillez saisir un bien disponible."<<endl;
-            cin>>ID;
-        }
     }
     map<string,Client>::iterator it;
     it=MapClient.find(nomAcheteur);
@@ -265,34 +262,35 @@ void Agence::AddAchatEff() {
     int ID;
     cout<<"Veuillez saisir le nom d'acheteur:"<<endl;
     cin>>nomAcheteur;
+    while (!ExisteClient(nomAcheteur)){
+        cout<<"Client n'existe pas, veuillez saisir un client qui existe ou enregistrer ce client d'abord"<<endl;
+        cin>>nomAcheteur;
+    }
+    MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
     cout<<"Veuillez saisir l'ID de bien:"<<endl;
     cin>>ID;
-    while (!cin.good())
+    while (!cin.good()||!Existe(ID))
     {
-        cout << "saisir un correct type de nombre"<<endl;
+        cout << "Donnee saisie n'est pas le type correspond ou ce ID n'existe pas, veuillez saisir un nouveau"<<endl;
         cin.clear();
         cin.sync();
         cin >> ID;
-        while(!Existe(ID)){
-            cout<<"Ce bien n'existe pas, veuillez saisir un bien disponible."<<endl;
-            cin>>ID;
-        }
     }
     map<string,Client>::iterator it;
     it=MapClient.find(nomAcheteur);
     if (it==MapClient.end()){
-        Client c1;
-        c1.setMNom(nomAcheteur);
-        MapClient.insert(it,pair<string,Client>(nomAcheteur,c1));
-        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
-    }else{
-        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
-    }
+                Client c1;
+                c1.setMNom(nomAcheteur);
+                MapClient.insert(it,pair<string,Client>(nomAcheteur,c1));
+                MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+            }else{
+                MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+            }
 
-    for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
-        if(ret->getMId()==ID){
-            b1=*ret;
-            break;
+            for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
+                if(ret->getMId()==ID){
+                    b1=*ret;
+                    break;
         }
     }
     MapClientAcheteur[nomAcheteur].AddAchat(b1);
@@ -320,9 +318,9 @@ bool Agence::Existe(int ID) {
 bool Agence::ExisteClient(string nom) {
     map<string,Client>::iterator it;
     it=MapClient.find(nom);
-    if (it==MapClient.end()){
-        return false;
-    }else{
+    if (it!=MapClient.end()){
         return true;
+    }else{
+        return false;
     }
 }
