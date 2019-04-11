@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 
 void Agence::AddClient(){
@@ -46,7 +47,7 @@ void Agence::AddBien(){
     cout <<"t Terrain"<<endl;
     cout <<"l Locaux professionenls:"<<endl;
     cin>>type;
-    while (!cin.good()|type!=('a'||'m'||'t'||'l'))
+    while (!cin.good()||(type!='a'&&type!='m'&&type!='t'&&type!='l'))
     {
         cout << "Veuillez saisir un type parmi a, m ,t ,l" <<endl;
         cin.clear();
@@ -269,4 +270,14 @@ void Agence::AddAchatEff() {
     }
     MapClientAcheteur[nomAcheteur].AddAchat(b1);
     SuppBien(b1);
+}
+
+void ReadInfo(string Filename){
+    /*char data[256];
+    cout<<"lecture de dossier:"<<Filename<<endl;
+    ifstream infile;
+    infile.open(Filename.c_str());
+    infile >> data;
+
+    */
 }
