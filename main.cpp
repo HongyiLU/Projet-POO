@@ -6,7 +6,7 @@ int main() {
     Agence a1;
     a1.AddClient();
     a1.AddBien();
-    a1.AddPropoAchat();
+    a1.AddPropoAchat(1,464646);
     a1.AddAchatEff();
     a1.ReadInfo("biens.txt");
 }
