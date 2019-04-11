@@ -46,7 +46,7 @@ void Agence::AddBien(){
     cout <<"t Terrain"<<endl;
     cout <<"l Locaux professionenls:"<<endl;
     cin>>type;
-    while (!cin.good()|type!=('a'||'m'||'t'||'l'))
+    while (!cin.good()&&type!='a'&&'m'&&'t'&&'l')
     {
         cout << "Veuillez saisir un type parmi a, m ,t ,l" <<endl;
         cin.clear();
@@ -63,6 +63,7 @@ void Agence::AddBien(){
         cin.sync();
         cin >> ID;
     }
+
 
     cout<<"Veuillez saisir le surface:"<<endl;
     cin>>surface;
