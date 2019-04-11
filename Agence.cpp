@@ -14,6 +14,7 @@
 #include <string>
 #include <algorithm>
 
+#include <fstream>
 using namespace std;
 
 void Agence::AddClient() {
@@ -313,4 +314,39 @@ bool Agence::ExisteClient(string nom) {
     } else {
         return false;
     }
+}
+void ReadInfo(string Filename){
+    char data[1024];
+    cout<<"lecture de dossier:"<<Filename<<endl;
+    ifstream infile;
+    infile.open(Filename.c_str());
+    infile.getline(data,1024);
+
+    char *p;
+    const char *delim = " ";
+    p = strtok(data, delim);
+    char info[1024];
+    int i = 0;
+    while(p) {
+        cout << p << endl;
+        info[i++] = p;
+        p = strtok(NULL, delim);
+    }
+    int j = 0;
+    if (Filename=="biens.txt"){
+
+        if (info[j]=='a'){
+            Appartement a1(prix,surface,ID,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
+            ListBien.push_back(a1);
+            break;
+        }
+        }
+
+
+
+    }
+
+
+
+
 }
