@@ -234,3 +234,11 @@ void Agence::AddPropoAchat() {
     }
     MapClientAcheteur[nomAcheteur].AddVisit(b1);
 }
+
+void Agence::SuppBien() {
+
+}
+
+void Agence::AddAchatEff() {
+
+}
