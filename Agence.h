@@ -37,7 +37,7 @@ public:
 
     bool Existe(int);
 
-    void ReadInfo();
+    void ReadInfo(string);
 
     bool ExisteClient(string);
 

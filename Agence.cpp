@@ -315,7 +315,7 @@ bool Agence::ExisteClient(string nom) {
         return false;
     }
 }
-void ReadInfo(string Filename){
+void Agence::ReadInfo(string Filename){
     char data[1024];
     cout<<"lecture de dossier:"<<Filename<<endl;
     ifstream infile;
@@ -323,27 +323,97 @@ void ReadInfo(string Filename){
     infile.getline(data,1024);
 
     char *p;
-    const char *delim = " ";
+    const char *delim = ",";
     p = strtok(data, delim);
     char info[1024];
     int i = 0;
     while(p) {
         cout << p << endl;
-        info[i++] = p;
+        info[i] = p;
+        i++;
         p = strtok(NULL, delim);
     }
-    int j = 0;
+
     if (Filename=="biens.txt"){
-
+        int j = 0;
+        while(j!=i){
         if (info[j]=='a'){
-            Appartement a1(prix,surface,ID,vendeur,numPiece,etage,garage,cave,balcon,numTotal);
+            int prix = info[j+1];
+            int surface = info[j+2];
+            int ID = info[j+3];
+            char adrs = info[j+4];
+            char vendeur = info[j+5];
+            int numPiece = info[j+6];
+            int etage = info[j+7];
+            int garage = info[j+8];
+            int cave = info[j+9];
+            int balcon = info[j+10];
+            int numTotal = info[j+11];
+            j += 12;
+            Appartement a1(prix, surface, ID, adrs, vendeur, numPiece, etage, garage, cave, balcon, numTotal);
             ListBien.push_back(a1);
-            break;
         }
+        if (info[j]=='t'){
+            int prix = info[j+1];
+            int surface = info[j+2];
+            int ID = info[j+3];
+            char adrs = info[j+4];
+            char vendeur = info[j+5];
+            int construtible = info[j+6];
+            j += 7;
+            Terrain t1(prix, surface, ID, adrs, vendeur, construtible);
+            ListBien.push_back(t1);
+        }
+        if (info[j]=='m'){
+            int prix = info[j+1];
+            int surface = info[j+2];
+            int ID = info[j+3];
+            char adrs = info[j+4];
+            char vendeur = info[j+5];
+            int numPiece = info[j+6];
+            bool garage = info[j+7];
+            bool jardin = info[j+8];
+            bool piscine = info[j+9];
+            j += 10;
+            Maison m1(prix, surface, ID, adrs, vendeur, numPiece, garage, jardin, piscine);
+            ListBien.push_back(m1);
+
+        }
+        if (info[j]=='l'){
+            int prix = info[j+1];
+            int surface = info[j+2];
+            int ID = info[j+3];
+            char adrs = info[j+4];
+            char vendeur = info[j+5];
+            double surfaceVitrine = info[j+6];
+            bool pieceStock = info[j+7];
+            j += 8;
+            LocauxProfessionnels l1(prix, surface, ID, adrs, vendeur, surfaceVitrine, pieceStock);
+            ListBien.push_back(l1);
+
         }
 
 
 
+        }
+
+
+
+    }
+    if (Filename=="acheteurs.txt"){
+        int j = 0;
+        while (j!=i) {
+            Client c = info[j];
+            string nom = info[j+1];
+            string adrs = info[j+2];
+            c.setMNom(nom);
+            c.setMAdresse(adrs);
+            pair<map<string, Client>::iterator, bool> ret;
+            ret = MapClient.insert(pair<string, Client>(nom, c));
+            if (ret.second == false) {
+                cout << "Client existe deja" << endl;
+            }
+        }
     }
 
 
