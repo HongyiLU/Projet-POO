@@ -222,14 +222,14 @@ void Agence::AddPropoAchat() {
         Client c1;
         c1.setMNom(nomAcheteur);
         MapClient.insert(it,pair<string,Client>(nomAcheteur,c1));
-        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
-    }else{
-        MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
-    }
+            MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+        }else{
+            MapClientAcheteur[nomAcheteur]=MapClient[nomAcheteur];
+        }
 
-    for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
-        if(ret->getMId()==ID){
-            b1=*ret;
+        for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
+            if(ret->getMId()==ID){
+                b1=*ret;
             break;
         }
     }

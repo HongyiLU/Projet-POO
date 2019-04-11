@@ -31,6 +31,9 @@ public:
 
     int getMId() const;
 
+    bool operator==(Bien b2){
+        return (this->m_ID==b2.m_ID);
+    }
 protected:
     int m_ID;
     double m_Prix;
