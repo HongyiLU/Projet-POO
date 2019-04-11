@@ -16,6 +16,7 @@
 
 using namespace std;
 
+//creation de client
 void Agence::AddClient() {
     Client c;
     string nom;
@@ -33,6 +34,7 @@ void Agence::AddClient() {
     }
 }
 
+//enregistrer d'un bien a vendre
 void Agence::AddBien() {
     char type;
     int ID;
@@ -201,6 +203,7 @@ void Agence::AddBien() {
     }
 }
 
+//enregistrer d'une proposition d'achat a un client
 void Agence::AddPropoAchat() {
     Bien b1;
     string nomAcheteur;
@@ -241,12 +244,14 @@ void Agence::AddPropoAchat() {
     MapClientAcheteur[nomAcheteur].AddVisit(b1);
 }
 
+//retirer un bien de la liste de biens dispos
 void Agence::SuppBien(Bien b1) {
     vector<Bien>::iterator it;
     it = find(ListBien.begin(), ListBien.end(), b1);
     ListBien.erase(it);
 }
 
+//enregistrer un achat effectue
 void Agence::AddAchatEff() {
     Bien b1;
     string nomAcheteur;
@@ -287,6 +292,7 @@ void Agence::AddAchatEff() {
     SuppBien(b1);
 }
 
+//verifier le ID de bien est unique
 bool Agence::Unique(int ID) {
     for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
         if (ret->getMId() == ID) {
@@ -296,6 +302,7 @@ bool Agence::Unique(int ID) {
     }
 }
 
+//verifier le bien est deja existe
 bool Agence::Existe(int ID) {
     for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
         if (ret->getMId() == ID) {
@@ -305,6 +312,7 @@ bool Agence::Existe(int ID) {
     }
 }
 
+//verifier le client est deja existe
 bool Agence::ExisteClient(string nom) {
     map<string, Client>::iterator it;
     it = MapClient.find(nom);
