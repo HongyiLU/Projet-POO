@@ -7,9 +7,10 @@
 
 #include "Bien.h"
 
-class Appartement: public Bien{
+class Appartement : public Bien {
 public:
-    Appartement(double m_Prix, double m_Surface,int m_ID, string m_Adresse, const Client &m_Vendeur, int m_NumPiece, int m_Etage,
+    Appartement(double m_Prix, double m_Surface, int m_ID, string m_Adresse, const Client &m_Vendeur, int m_NumPiece,
+                int m_Etage,
                 bool m_Garage, bool m_Cave, bool m_Balcon, int m_NumTotal);
 
     Appartement(const Appartement &A);
@@ -50,4 +51,5 @@ private:
     bool m_Balcon;
     int m_NumTotal;
 };
+
 #endif //PROJECT_UNTOITPOURTOUS_APPARTEMENT_H

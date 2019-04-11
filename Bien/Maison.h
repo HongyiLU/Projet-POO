@@ -7,7 +7,7 @@
 
 #include "Bien.h"
 
-class Maison: public Bien{
+class Maison : public Bien {
 public:
     Maison();
 
@@ -30,4 +30,5 @@ private:
     bool m_Jardin;
     bool m_Piscine;
 };
+
 #endif //PROJECT_UNTOITPOURTOUS_MAISON_H

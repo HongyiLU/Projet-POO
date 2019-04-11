@@ -5,27 +5,28 @@
 
 Appartement::Appartement() {}
 
-Appartement::Appartement(double m_Prix, double m_Surface, int m_ID, string m_Adresse, const Client &m_Vendeur, int m_NumPiece,
+Appartement::Appartement(double m_Prix, double m_Surface, int m_ID, string m_Adresse, const Client &m_Vendeur,
+                         int m_NumPiece,
                          int m_Etage, bool m_Garage, bool m_Cave, bool m_Balcon, int m_NumTotal) :
-                         Bien(m_Prix,m_Surface, m_ID,m_Adresse,m_Vendeur),
-                         m_NumPiece(m_NumPiece),
-                         m_Etage(m_Etage),
-                         m_Garage(m_Garage),
-                         m_Cave(m_Cave),
-                         m_Balcon(m_Balcon),
-                         m_NumTotal(m_NumTotal) {}
+        Bien(m_Prix, m_Surface, m_ID, m_Adresse, m_Vendeur),
+        m_NumPiece(m_NumPiece),
+        m_Etage(m_Etage),
+        m_Garage(m_Garage),
+        m_Cave(m_Cave),
+        m_Balcon(m_Balcon),
+        m_NumTotal(m_NumTotal) {}
 
-Appartement::Appartement(const Appartement &A){
-    this->m_ID=A.m_ID;
-    this->m_Prix=A.m_Prix;
-    this->m_Surface=A.m_Surface;
-    this->m_Vendeur=A.m_Vendeur;
-    this->m_NumPiece=A.m_NumPiece;
-    this->m_Etage=A.m_Etage;
-    this->m_Garage=A.m_Garage;
-    this->m_Cave=A.m_Cave;
-    this->m_Balcon=A.m_Balcon;
-    this->m_NumTotal=A.m_NumTotal;
+Appartement::Appartement(const Appartement &A) {
+    this->m_ID = A.m_ID;
+    this->m_Prix = A.m_Prix;
+    this->m_Surface = A.m_Surface;
+    this->m_Vendeur = A.m_Vendeur;
+    this->m_NumPiece = A.m_NumPiece;
+    this->m_Etage = A.m_Etage;
+    this->m_Garage = A.m_Garage;
+    this->m_Cave = A.m_Cave;
+    this->m_Balcon = A.m_Balcon;
+    this->m_NumTotal = A.m_NumTotal;
 };
 
 Appartement::~Appartement() {}
