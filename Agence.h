@@ -22,6 +22,8 @@ public:
     void AddClient();
     void AddBien();
     void AddPropoAchat();
+    void AddAchatEff();
+    void SuppBien();
 private:
     map<string, Client> MapClient;
     map<string, ClientVendeur> MapClientVendeur;
