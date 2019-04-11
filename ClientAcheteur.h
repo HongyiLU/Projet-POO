@@ -19,7 +19,7 @@ public:
 
     void AddVisit(Bien);
 
-    void AddAchat();
+    void AddAchat(Bien);
 
     void operator=(const Client& c1){
         this->m_Nom=c1.getMNom();

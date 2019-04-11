@@ -9,3 +9,11 @@ ClientAcheteur::ClientAcheteur(const string &mNom, const string &mAdresse) : Cli
 ClientAcheteur::ClientAcheteur() {}
 
 ClientAcheteur::~ClientAcheteur() {}
+
+void ClientAcheteur::AddVisit(Bien b1) {
+    ListVisit.push_back(b1);
+}
+
+void ClientAcheteur::AddAchat(Bien b1) {
+    ListAchat.push_back(b1);
+}
