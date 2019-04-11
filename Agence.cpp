@@ -65,7 +65,7 @@ void Agence::AddBien() {
         cin.clear();
         cin.sync();
         cin >> ID;
-        while (Unique(ID)) {
+        while (Existe(ID)) {
             cout << "ID existe deja, veuiilez saisir un nouveau ID." << endl;
             cin.clear();
             cin.sync();
@@ -206,7 +206,7 @@ void Agence::AddBien() {
 }
 
 //enregistrer d'une proposition d'achat a un client
-void Agence::AddPropoAchat() {
+void Agence::AddPropoAchat(bool Propo, double Prix) {
     Bien b1;
     string nomAcheteur;
     int ID;
@@ -227,6 +227,9 @@ void Agence::AddPropoAchat() {
         cin >> ID;
     }
     MapClientAcheteur[nomAcheteur].AddVisit(b1);
+    MapClientAcheteur[nomAcheteur].setPropoAchat(Propo);
+    MapClientAcheteur[nomAcheteur].setPropoPrix(Prix);
+
 }
 
 //retirer un bien de la liste de biens dispos
@@ -256,20 +259,14 @@ void Agence::AddAchatEff() {
         cin.sync();
         cin >> ID;
     }
-    MapClientAcheteur[nomAcheteur].AddAchat(b1);
-    SuppBien(b1);
-}
-
-//verifier le ID de bien est unique
-bool Agence::Unique(int ID) {
     for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
         if (ret->getMId() == ID) {
-            return true;
-        } else
-            return false;
+            b1 = *ret;
+        }
+        ListVendu.push_back(b1);
+        SuppBien(b1);
     }
 }
-
 //verifier le bien est deja existe
 bool Agence::Existe(int ID) {
     for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
@@ -290,6 +287,8 @@ bool Agence::ExisteClient(string nom) {
         return false;
     }
 }
+
+
 void Agence::ReadInfo(string Filename){
     char data[1024];
     cout<<"lecture de dossier:"<<Filename<<endl;

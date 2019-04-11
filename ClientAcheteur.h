@@ -19,16 +19,19 @@ public:
 
     void AddVisit(Bien);
 
-    void AddAchat(Bien);
-
     void operator=(const Client &c1) {
         this->m_Nom = c1.getMNom();
         this->m_Adresse = c1.getMAdresse1();
     }
 
+    void setPropoAchat(bool propoAchat);
+
+    void setPropoPrix(double propoPrix);
+
 private:
     vector<Bien> ListVisit;
-    vector<Bien> ListAchat;
+    bool PropoAchat;
+    double PropoPrix;
 };
 
 

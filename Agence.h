@@ -27,7 +27,7 @@ public:
 
     void AddBien();
 
-    void AddPropoAchat();
+    void AddPropoAchat(bool, double);
 
     void AddAchatEff();
 
@@ -45,6 +45,7 @@ private:
     map<string, Client> MapClient;
     map<string, ClientVendeur> MapClientVendeur;
     map<string, ClientAcheteur> MapClientAcheteur;
+    vector<Bien> ListVendu;
     vector<Bien> ListBien;
 };
 
