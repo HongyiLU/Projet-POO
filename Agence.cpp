@@ -12,6 +12,7 @@
 #include "ClientVendeur.h"
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <algorithm>
 
 #include <fstream>
@@ -333,11 +334,11 @@ void Agence::ReadInfo(string Filename){
     char *p;
     const char *delim = ",";
     p = strtok(data, delim);
-    char info[1024];
+    string info[1024];
     int i = 0;
     while(p) {
         cout << p << endl;
-        info[i] = p;
+        info[i] = *p;
         i++;
         p = strtok(NULL, delim);
     }
@@ -345,58 +346,58 @@ void Agence::ReadInfo(string Filename){
     if (Filename=="biens.txt"){
         int j = 0;
         while(j!=i){
-        if (info[j]=='a'){
-            int prix = info[j+1];
-            int surface = info[j+2];
-            int ID = info[j+3];
-            char adrs = info[j+4];
-            char vendeur = info[j+5];
-            int numPiece = info[j+6];
-            int etage = info[j+7];
-            int garage = info[j+8];
-            int cave = info[j+9];
-            int balcon = info[j+10];
-            int numTotal = info[j+11];
+        if (info[j]=="a"){
+            int prix = atoi(info[j+1].c_str());
+            int surface = atoi(info[j+2].c_str());
+            int ID =atoi(info[j+3].c_str());
+            string adrs = info[j+4];
+            string numvendeur = info[j+5];
+            int numPiece = atoi(info[j+6].c_str());
+            int etage = atoi(info[j+7].c_str());
+            int garage = atoi(info[j+8].c_str());
+            int cave = atoi(info[j+9].c_str());
+            int balcon = atoi(info[j+10].c_str());
+            int numTotal = atoi(info[j+11].c_str());
             j += 12;
-            Appartement a1(prix, surface, ID, adrs, vendeur, numPiece, etage, garage, cave, balcon, numTotal);
+            Appartement a1(prix, surface, ID, adrs, MapClientVendeur[numvendeur] ,numPiece, etage, garage, cave, balcon, numTotal);
             ListBien.push_back(a1);
         }
-        if (info[j]=='t'){
-            int prix = info[j+1];
-            int surface = info[j+2];
-            int ID = info[j+3];
-            char adrs = info[j+4];
-            char vendeur = info[j+5];
-            int construtible = info[j+6];
+        if (info[j]=="t"){
+            int prix = atoi(info[j+1].c_str());
+            int surface = atoi(info[j+2].c_str());
+            int ID = atoi(info[j+3].c_str());
+            string adrs = info[j+4];
+            string numvendeur = info[j+5];
+            int construtible = atoi(info[j+6].c_str());
             j += 7;
-            Terrain t1(prix, surface, ID, adrs, vendeur, construtible);
+            Terrain t1(prix, surface, ID, adrs, MapClientVendeur[numvendeur], construtible);
             ListBien.push_back(t1);
         }
-        if (info[j]=='m'){
-            int prix = info[j+1];
-            int surface = info[j+2];
-            int ID = info[j+3];
-            char adrs = info[j+4];
-            char vendeur = info[j+5];
-            int numPiece = info[j+6];
-            bool garage = info[j+7];
-            bool jardin = info[j+8];
-            bool piscine = info[j+9];
+        if (info[j]=="m"){
+            int prix = atoi(info[j+1].c_str());
+            int surface = atoi(info[j+2].c_str());
+            int ID = atoi(info[j+3].c_str());
+            string adrs = info[j+4];
+            string numvendeur = info[j+5];
+            int numPiece = atoi(info[j+6].c_str());
+            int garage = atoi(info[j+7].c_str());
+            int jardin = atoi(info[j+8].c_str());
+            int piscine = atoi(info[j+9].c_str());
             j += 10;
-            Maison m1(prix, surface, ID, adrs, vendeur, numPiece, garage, jardin, piscine);
+            Maison m1(prix, surface, ID, adrs, MapClientVendeur[numvendeur], numPiece, garage, jardin, piscine);
             ListBien.push_back(m1);
 
         }
-        if (info[j]=='l'){
-            int prix = info[j+1];
-            int surface = info[j+2];
-            int ID = info[j+3];
-            char adrs = info[j+4];
-            char vendeur = info[j+5];
-            double surfaceVitrine = info[j+6];
-            bool pieceStock = info[j+7];
+        if (info[j]=="l"){
+            int prix = atoi(info[j+1].c_str());
+            int surface = atoi(info[j+2].c_str());
+            int ID = atoi(info[j+3].c_str());
+            string adrs = info[j+4];
+            string numvendeur = info[j+5];
+            double surfaceVitrine = atoi(info[j+6].c_str());
+            bool pieceStock = atoi(info[j+7].c_str());
             j += 8;
-            LocauxProfessionnels l1(prix, surface, ID, adrs, vendeur, surfaceVitrine, pieceStock);
+            LocauxProfessionnels l1(prix, surface, ID, adrs, MapClientVendeur[numvendeur], surfaceVitrine, pieceStock);
             ListBien.push_back(l1);
 
         }
@@ -411,9 +412,24 @@ void Agence::ReadInfo(string Filename){
     if (Filename=="acheteurs.txt"){
         int j = 0;
         while (j!=i) {
-            Client c = info[j];
-            string nom = info[j+1];
-            string adrs = info[j+2];
+            Client c;
+            string nom = info[j];
+            string adrs = info[j+1];
+            c.setMNom(nom);
+            c.setMAdresse(adrs);
+            pair<map<string, Client>::iterator, bool> ret;
+            ret = MapClient.insert(pair<string, Client>(nom, c));
+            if (ret.second == false) {
+                cout << "Client existe deja" << endl;
+            }
+        }
+    }
+    if (Filename=="vendeurs.txt"){
+        int j = 0;
+        while (j!=i) {
+            Client c;
+            string nom = info[j];
+            string adrs = info[j+1];
             c.setMNom(nom);
             c.setMAdresse(adrs);
             pair<map<string, Client>::iterator, bool> ret;
