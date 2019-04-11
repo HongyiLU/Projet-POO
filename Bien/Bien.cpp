@@ -16,6 +16,7 @@ Bien::Bien(const Bien &B) {
     this->m_ID=B.m_ID;
     this->m_Prix=B.m_Prix;
     this->m_Surface=B.m_Surface;
+    this->m_Adresse=B.m_Adresse;
     this->m_Vendeur=B.m_Vendeur;
 }
 

@@ -28,7 +28,7 @@ void Agence::AddClient(){
    pair<map<string,Client>::iterator , bool> ret;
     ret = MapClient.insert(pair<string,Client>(nom,c));
     if(ret.second==false){
-        cout<<"Cliemt existe deja"<<endl;
+        cout<<"Client existe deja"<<endl;
     }
 }
 
@@ -46,7 +46,7 @@ void Agence::AddBien(){
     cout <<"t Terrain"<<endl;
     cout <<"l Locaux professionenls:"<<endl;
     cin>>type;
-    while (!cin.good()&&type!='a'&&'m'&&'t'&&'l')
+    while (!cin.good()||type!='a'&&type!='m'&&type!='t'&&type!='l')
     {
         cout << "Veuillez saisir un type parmi a, m ,t ,l" <<endl;
         cin.clear();
@@ -62,6 +62,12 @@ void Agence::AddBien(){
         cin.clear();
         cin.sync();
         cin >> ID;
+        while(Unique(ID)){
+            cout<<"ID existe deja, veuiilez saisir un nouveau ID."<<endl;
+            cin.clear();
+            cin.sync();
+            cin >> ID;
+        }
     }
 
 
@@ -94,11 +100,10 @@ void Agence::AddBien(){
     getline(cin,nomVendeur);
 
     //verifier si le client est déja sur la liste
-    map<string,Client>::iterator it;
-    it=MapClient.find(nomVendeur);
-    if (it==MapClient.end()){
+    if (ExisteClient(nomVendeur)){
         Client c1;
         c1.setMNom(nomVendeur);
+        map<string,Client>::iterator it;
         MapClient.insert(it,pair<string,Client>(nomVendeur,c1));
         vendeur=MapClient[nomVendeur];
     }else{
@@ -217,6 +222,17 @@ void Agence::AddPropoAchat() {
     cin>>nomAcheteur;
     cout<<"Veuillez saisir l'ID de bien:"<<endl;
     cin>>ID;
+    while (!cin.good())
+    {
+        cout << "saisir un correct type de nombre"<<endl;
+        cin.clear();
+        cin.sync();
+        cin >> ID;
+        while(!Existe(ID)){
+            cout<<"Ce bien n'existe pas, veuillez saisir un bien disponible."<<endl;
+            cin>>ID;
+        }
+    }
     map<string,Client>::iterator it;
     it=MapClient.find(nomAcheteur);
     if (it==MapClient.end()){
@@ -251,6 +267,17 @@ void Agence::AddAchatEff() {
     cin>>nomAcheteur;
     cout<<"Veuillez saisir l'ID de bien:"<<endl;
     cin>>ID;
+    while (!cin.good())
+    {
+        cout << "saisir un correct type de nombre"<<endl;
+        cin.clear();
+        cin.sync();
+        cin >> ID;
+        while(!Existe(ID)){
+            cout<<"Ce bien n'existe pas, veuillez saisir un bien disponible."<<endl;
+            cin>>ID;
+        }
+    }
     map<string,Client>::iterator it;
     it=MapClient.find(nomAcheteur);
     if (it==MapClient.end()){
@@ -270,4 +297,32 @@ void Agence::AddAchatEff() {
     }
     MapClientAcheteur[nomAcheteur].AddAchat(b1);
     SuppBien(b1);
+}
+
+bool Agence::Unique(int ID) {
+    for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
+        if(ret->getMId()==ID){
+            return true;
+        }else
+            return false;
+    }
+}
+
+bool Agence::Existe(int ID) {
+    for(vector<Bien>::iterator ret=ListBien.begin();ret!=ListBien.end();++ret){
+        if(ret->getMId()==ID){
+            return true;
+        }else
+            return false;
+    }
+}
+
+bool Agence::ExisteClient(string nom) {
+    map<string,Client>::iterator it;
+    it=MapClient.find(nom);
+    if (it==MapClient.end()){
+        return false;
+    }else{
+        return true;
+    }
 }

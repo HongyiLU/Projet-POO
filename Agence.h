@@ -24,7 +24,10 @@ public:
     void AddPropoAchat();
     void AddAchatEff();
     void SuppBien(Bien);
+    bool Unique(int);
+    bool Existe(int);
     void ReadInfo();
+    bool ExisteClient(string);
 private:
     map<string, Client> MapClient;
     map<string, ClientVendeur> MapClientVendeur;
