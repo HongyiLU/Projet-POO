@@ -26,7 +26,9 @@ void Agence::AddClient() {
     cout << "Veuillez saisir le nom de client" << endl;
     cin >> nom;
     cout << "Veuillez saisir l'adresse de client" << endl;
-    cin >> adrs;
+    cin.ignore();
+    getline(cin, adrs);
+
     c.setMNom(nom);
     c.setMAdresse(adrs);
     pair<map<string, Client>::iterator, bool> ret;
@@ -310,7 +312,7 @@ void Agence::ReadInfo(string Filename){
 
     if (Filename=="biens.txt"){
         int j = 0;
-        while(j!=i){
+        while(j<=i){
         if (info[j]=="a"){
             int prix = atoi(info[j+1].c_str());
             int surface = atoi(info[j+2].c_str());
@@ -376,12 +378,24 @@ void Agence::ReadInfo(string Filename){
     }
     if (Filename=="acheteurs.txt"){
         int j = 0;
-        while (j!=i) {
+        while (j<=i) {
             Client c;
+            ClientAcheteur ca;
             string nom = info[j];
             string adrs = info[j+1];
-            c.setMNom(nom);
-            c.setMAdresse(adrs);
+            int ID = atoi(info[j+2].c_str());
+            j += 3;
+
+            Bien a;
+            for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
+                if (ret->getMId() == ID) {
+                    Bien a = *ret;
+                }
+            }
+            ca.setMNom(nom);
+            ca.setMAdresse(adrs);
+            ca.AddVisit(a);
+
             pair<map<string, Client>::iterator, bool> ret;
             ret = MapClient.insert(pair<string, Client>(nom, c));
             if (ret.second == false) {
@@ -391,12 +405,23 @@ void Agence::ReadInfo(string Filename){
     }
     if (Filename=="vendeurs.txt"){
         int j = 0;
-        while (j!=i) {
+        while (j<=i) {
             Client c;
+            ClientVendeur cv;
             string nom = info[j];
             string adrs = info[j+1];
-            c.setMNom(nom);
-            c.setMAdresse(adrs);
+            int ID = atoi(info[j+2].c_str());
+            j += 3;
+
+            Bien a;
+            for (vector<Bien>::iterator ret = ListBien.begin(); ret != ListBien.end(); ++ret) {
+                if (ret->getMId() == ID) {
+                    a = *ret;
+                }
+            }
+            cv.setMNom(nom);
+            cv.setMAdresse(adrs);
+            cv.AddBien(a);
             pair<map<string, Client>::iterator, bool> ret;
             ret = MapClient.insert(pair<string, Client>(nom, c));
             if (ret.second == false) {

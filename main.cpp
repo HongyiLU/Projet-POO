@@ -8,5 +8,5 @@ int main() {
     a1.AddBien();
     a1.AddPropoAchat(1,464646);
     a1.AddAchatEff();
-    a1.ReadInfo("biens.txt");
+    a1.ReadInfo("C:\\Users\\51924\\CLionProjects\\Projet-POO\\biens.txt");
 }
