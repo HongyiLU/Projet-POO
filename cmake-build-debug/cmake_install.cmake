@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/51924/CLionProjects/Projet-POO
+# Install script for directory: C:/Users/HONGYI LU/Documents/CLionProjects/Projet-POO
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/51924/CLionProjects/Projet-POO/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/HONGYI LU/Documents/CLionProjects/Projet-POO/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
