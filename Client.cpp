@@ -2,7 +2,9 @@
 // Created by HONGYI LU on 2019/3/6.
 //
 #include "Client.h"
+
 using namespace std;
+
 Client::Client(const string &mNom, const string &mAdresse) : m_Nom(mNom), m_Adresse(mAdresse) {}
 
 void Client::setMNom(const string &mNom) {

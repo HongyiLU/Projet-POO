@@ -7,20 +7,23 @@
 
 #include "Bien.h"
 
-class Terrain: public Bien{
+class Terrain : public Bien {
 public:
     Terrain() {}
 
-    Terrain(double mPrix, double mSurface, int mId, const Client &mVendeur, bool mConstrutible) : Bien(mPrix,
-                                                                                                              mSurface,
-                                                                                                              mId,
-                                                                                                              mVendeur),
-                                                                                                         m_Construtible(
-                                                                                                                 mConstrutible) {}
+    Terrain(double mPrix, double mSurface, int mId, string mAdresse, const Client &mVendeur, bool mConstrutible) : Bien(
+            mPrix,
+            mSurface,
+            mId,
+            mAdresse,
+            mVendeur),
+                                                                                                                   m_Construtible(
+                                                                                                                           mConstrutible) {}
 
     virtual ~Terrain() {}
 
 private:
     bool m_Construtible;
 };
+
 #endif //PROJECT_UNTOITPOURTOUS_TERRAIN_H

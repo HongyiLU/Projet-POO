@@ -9,11 +9,12 @@
 #include "../Client.h"
 
 using namespace std;
+
 class Bien {
 public:
     Bien();
 
-    Bien(double m_Prix, double m_Surface, int m_ID,string m_Adresse, const Client& m_Vendeur);
+    Bien(double m_Prix, double m_Surface, int m_ID, string m_Adresse, const Client &m_Vendeur);
 
     Bien(const Bien &B);
 
@@ -31,9 +32,10 @@ public:
 
     int getMId() const;
 
-    bool operator==(Bien b2){
-        return (this->m_ID==b2.m_ID);
+    bool operator==(Bien b2) {
+        return (this->m_ID == b2.m_ID);
     }
+
 protected:
     int m_ID;
     double m_Prix;
@@ -41,4 +43,5 @@ protected:
     string m_Adresse;
     Client m_Vendeur;
 };
+
 #endif //PROJECT_UNTOITPOURTOUS_BIEN_H

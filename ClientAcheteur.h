@@ -9,7 +9,7 @@
 #include "Client.h"
 #include "Bien/Bien.h"
 
-class ClientAcheteur: public Client{
+class ClientAcheteur : public Client {
 public:
     ClientAcheteur();
 
@@ -21,9 +21,9 @@ public:
 
     void AddAchat(Bien);
 
-    void operator=(const Client& c1){
-        this->m_Nom=c1.getMNom();
-        this->m_Adresse=c1.getMAdresse1();
+    void operator=(const Client &c1) {
+        this->m_Nom = c1.getMNom();
+        this->m_Adresse = c1.getMAdresse1();
     }
 
 private:

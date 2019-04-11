@@ -14,24 +14,38 @@
 
 using namespace std;
 
-class Agence{
+class Agence {
 public:
     Agence() {}
-    Agence(Agence& a):MapClient(a.MapClient), MapClientVendeur(a.MapClientVendeur),MapClientAcheteur(a.MapClientAcheteur),ListBien(a.ListBien){}
+
+    Agence(Agence &a) : MapClient(a.MapClient), MapClientVendeur(a.MapClientVendeur),
+                        MapClientAcheteur(a.MapClientAcheteur), ListBien(a.ListBien) {}
+
     virtual ~Agence() {}
+
     void AddClient();
+
     void AddBien();
+
     void AddPropoAchat();
+
     void AddAchatEff();
+
     void SuppBien(Bien);
+
     bool Unique(int);
+
     bool Existe(int);
+
     void ReadInfo();
+
     bool ExisteClient(string);
+
 private:
     map<string, Client> MapClient;
     map<string, ClientVendeur> MapClientVendeur;
     map<string, ClientAcheteur> MapClientAcheteur;
     vector<Bien> ListBien;
 };
+
 #endif //PROJECT_UNTOITPOURTOUS_AGENCE_H
