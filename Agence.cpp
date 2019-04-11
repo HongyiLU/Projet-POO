@@ -47,7 +47,7 @@ void Agence::AddBien(){
     cin>>type;
     while (!cin.good())
     {
-        cout << "Veuillez saisir un type parmi a, m ,t ,l";
+        cout << "Veuillez saisir un type parmi a, m ,t ,l" <<endl;
         cin.clear();
         cin.sync();
         cin >> type;
@@ -57,7 +57,7 @@ void Agence::AddBien(){
     cin>>ID;
     while (!cin.good())
     {
-        cout << "Veuillez saisir un nombre";
+        cout << "saisir un correct type de nombre"<<endl;
         cin.clear();
         cin.sync();
         cin >> ID;
@@ -67,7 +67,7 @@ void Agence::AddBien(){
     cin>>surface;
     while (!cin.good())
     {
-        cout << "Veuillez saisir un nombre";
+        cout << "saisir un correct type de nombre"<<endl;
         cin.clear();
         cin.sync();
         cin >> surface;
@@ -77,7 +77,7 @@ void Agence::AddBien(){
     cin>>prix;
     while (!cin.good())
     {
-        cout << "Veuillez saisir un nombre";
+        cout << "saisir un correct type de nombre"<<endl;
         cin.clear();
         cin.sync();
         cin >> prix;
@@ -113,10 +113,34 @@ void Agence::AddBien(){
             bool balcon;
             cout<<"Veuillez saisir le nombre de piece:"<<endl;
             cin>>numPiece;
+            while (!cin.good())
+            {
+                cout << "saisir un correct type de nombre"<<endl;
+                cin.clear();
+                cin.sync();
+                cin >> numPiece;
+            }
+
             cout<<"Veuillez saisir l'etage:"<<endl;
             cin>>etage;
+            while (!cin.good())
+            {
+                cout << "saisir un correct type de nombre"<<endl;
+                cin.clear();
+                cin.sync();
+                cin >> etage;
+            }
+
             cout<<"Veuillez saisir le nombre total d'appartement dans l'immeuble:"<<endl;
             cin>>numTotal;
+            while (!cin.good())
+            {
+                cout << "saisir un correct type de nombre"<<endl;
+                cin.clear();
+                cin.sync();
+                cin >> numTotal;
+            }
+
             cout<<"Est-ce que cet appartement a un garage? 1 Oui 0 Non"<<endl;
             cin>>garage;
             cout<<"Est-ce que cet appartement a une cave? 1 Oui 0 Non"<<endl;
@@ -135,6 +159,14 @@ void Agence::AddBien(){
             bool piscine;
             cout<<"Veuillez saisir le nombre de piece:"<<endl;
             cin>>numPiece;
+            while (!cin.good())
+            {
+                cout << "saisir un correct type de nombre"<<endl;
+                cin.clear();
+                cin.sync();
+                cin >> numPiece;
+            }
+
             cout<<"Est-ce que cette maison a un jardin? 1 Oui 0 Non"<<endl;
             cin>>jardin;
             cout<<"Est-ce que cette maison a un piscine? 1 Oui 0 Non"<<endl;
@@ -158,6 +190,13 @@ void Agence::AddBien(){
             bool pieceStock;
             cout<<"Veuillez saisir le surface de vitrine:"<<endl;
             cin>>surfaceVitrine;
+            while (!cin.good())
+            {
+                cout << "saisir un correct type de nombre"<<endl;
+                cin.clear();
+                cin.sync();
+                cin >> surfaceVitrine;
+            }
 
             cout<<"Est-ce qu'il a une piece de stock? 1 Oui 0 Non"<<endl;
             cin>>pieceStock;
